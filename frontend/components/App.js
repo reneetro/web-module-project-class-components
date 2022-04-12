@@ -12,6 +12,20 @@ const initialState = {
 export default class App extends React.Component {
   state = initialState
 
+  toggleCompleted = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if(todoId === todo.id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo;
+      })
+    })
+  }
+
   addTodo = (evt, todo) => {
     const newTodo = {
       name: todo,
@@ -25,7 +39,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos}/>
+        <TodoList 
+        todos={this.state.todos}
+        toggleCompleted={this.toggleCompleted}
+        />
         <Form addTodo={this.addTodo}/>
       </div>
     )
