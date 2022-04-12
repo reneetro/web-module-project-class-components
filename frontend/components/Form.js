@@ -12,9 +12,16 @@ export default class Form extends React.Component {
       todoText: evt.target.value
     })
   }
+  handleSubmit = evt => {
+    evt.preventDefault()
+    this.props.addTodo(evt, this.state.todoText)
+    this.setState({
+      todoText: ''
+    })
+  }
   render() {
     return (
-      <form>
+      <form onSubmit= {this.handleSubmit}>
         <input 
         type='text'
         name='todo'
