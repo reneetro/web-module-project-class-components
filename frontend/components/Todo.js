@@ -5,7 +5,7 @@ export default class Todo extends React.Component {
     return (
       <div onClick= { () => this.props.toggleCompleted(this.props.todo.id)}>
         {console.log(this.props.todo)}
-        <p>{this.props.todo.name}</p>
+        <p>{this.props.todo.completed ? `${this.props.todo.name}✔️`: this.props.todo.name}</p>
       </div>
     )
   }

@@ -18,7 +18,7 @@ export default class App extends React.Component {
         if(todoId === todo.id){
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           }
         }
         return todo;
